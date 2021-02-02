@@ -1,0 +1,71 @@
+import React, { Component } from 'react'
+
+class Keyboard extends Component{
+  constructor(props){
+    super(props)
+    this.state = {
+      keyboard: []
+    }
+  }
+
+  //-- Return an integer in the min,max interval --
+  getRandomIntInclusive(minInt, maxInt) {
+    minInt = Math.ceil(minInt);
+    maxInt = Math.floor(maxInt);
+    return Math.floor(Math.random() * (maxInt - minInt +1)) + minInt;
+  }
+  shuffleArray(array) {
+    array.sort(() => Math.random() - 0.5);
+    return array
+  }
+  //-- Disabled the button after a good click --
+  disabledButton(buttonId){
+    let button = document.getElementById('button_'+buttonId)
+    button.setAttribute('disabled', true);
+  }
+
+  myKeyboard(){
+    const alphabet = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
+    const currentWord = this.props.currentWord
+    let keyboard = []
+
+    //-- Create a keyboard with 26 letters
+    for (let i = 0; i < 26; i++) {
+      if(i < currentWord.length){
+        //-- add currentWord letters in keyboard --
+        keyboard.push(<button id={`button_${i}`} key={i} onClick={() => {this.props.onClick(currentWord[i]);this.disabledButton(i)}}>{currentWord[i]}</button>)
+      }
+      else{
+        //-- add random letters to complete the keyboard --
+        let randomInt = this.getRandomIntInclusive(0,25)
+        keyboard.push(<button id={`button_${i}`} key={i} onClick={() => {this.props.onClick(alphabet[randomInt]);this.disabledButton(i)}}>{alphabet[randomInt]}</button>)
+      }
+    }
+
+    //-- I shuffle array because the currentWord is at the beginning --
+    keyboard = this.shuffleArray(keyboard)
+
+    //-- Update the keyboard state --
+    this.setState({
+      keyboard: keyboard
+    })
+  }
+
+  componentDidMount(){
+    this.myKeyboard()
+  }
+
+  render(){
+    return(
+      <div>
+        {this.state.keyboard}
+      </div>
+    )
+  }
+}
+
+export default Keyboard
+
+App.js
+{/*-- Display the keyboard if there are a currentWord and if there are no winner and no loser */}
+{(this.state.currentWord.length  && (!this.state.isWinner) ? <Keyboard currentWord={this.state.currentWord} onClick={(letter) => this.handleClickKeyboard(letter)}/> : '')}

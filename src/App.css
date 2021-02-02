@@ -36,3 +36,178 @@
     transform: rotate(360deg);
   }
 }
+
+/* -- MY CSS --*/
+html,body{
+  height: 100%;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+#root{
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(#E99C74 50%, #5B5858 50%);
+
+}
+#container{
+  height: 100%;
+}
+#game{
+  width: 100%;
+  text-align: center;
+}
+#game h4{
+  font-size: 18px;
+}
+#game > h4{
+  margin: 0;
+  padding-top: 30px;
+}
+button{
+  font-size: 30px;
+  border-radius: 0 12px 0 5px;
+  padding: 0 10px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+}
+#maskWord{
+  letter-spacing: 20px;
+  font-size: 50px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 38%;
+}
+/* -- THE PENDU -- */
+#pendu_block{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  bottom: 0;
+}
+#pendu{
+  position: relative;
+}
+#pendu #head{
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 5px solid black;
+  background-color: #f3b2c8;
+  position: absolute;
+  top: 169px;
+  left: 201px;
+}
+#pendu #body{
+  height: 65px;
+  width: 5px;
+  background-color: black;
+  border-radius: 5px;
+  position: absolute;
+  top: 215px;
+  left: 224px;
+}
+#pendu .arm{
+  height: 40px;
+  width: 5px;
+  background-color: black;
+  border-radius: 5px;
+  position: absolute;
+  top: 210px;
+  left: 208px;
+  transform: rotate(125deg);
+}
+#pendu .arm.right{
+  transform: rotate(-125deg);
+  left: 241px;
+}
+#pendu .leg{
+  height: 40px;
+  width: 5px;
+  background-color: black;
+  border-radius: 5px;
+  position: absolute;
+  top: 270px;
+  left: 211px;
+  transform: rotate(45deg);
+}
+#pendu .leg.right{
+  transform: rotate(-45deg);
+  left: 237px;
+}
+#pendu .eyes{
+  height: 15px;
+  width: 13px;
+  border-radius: 100%;
+  background-color: black;
+  position: absolute;
+  top: 182px;
+  left: 210px;
+}
+#pendu .eyes.right{
+  left: 229px;
+  height: 13px;
+}
+#pendu #mouth{
+  width: 18px;
+  height: 9px;
+  border-radius: 25px 25px 0 0;
+  position: absolute;
+  top: 196px;
+  left: 215px;
+  border: 3px solid black;
+  border-bottom: none;
+}
+#pendu > div{
+  display: none;
+}
+/* -- BASE OF PENDU -- */
+#pendu_base{
+  margin-top: -200px;
+}
+.base{
+  background-color: black;
+  height: 8px;
+  width: 8px;
+  border-radius: 5px;
+  position: relative;
+}
+.base_1{
+  width: 320px;
+}
+.base_2{
+  height: 230px;
+  top: 5px;
+  left: 80px;
+}
+.base_3{
+  top: 10px;
+  left: 80px;
+  width: 150px;
+}
+.base_4{
+  left: 222px;
+  top: 62px;
+  height: 50px;
+}
+.base_5{
+  top: 115px;
+  left: 100px;
+  height: 60px;
+  transform: rotate(45deg);
+}
+
+/* --- KEYBOARD --- */
+#keyboard{
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
